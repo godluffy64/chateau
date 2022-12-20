@@ -20,8 +20,7 @@ public class brique {
     } 
 
     public void afficher_brique(){
-        box()
+        box(getLongueur(),getHauteur(),getLongueur()/2);
     }
 
 }
-
