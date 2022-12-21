@@ -34,28 +34,37 @@ public class mur  {
         this.taille = t;
         this.brique = b;
     }
+    public void afficher_ligne(boolean pair){
+        int n = 0;
+        pushMatrix();
+        if (!pair){
+                n = 1;
+                brique.afficher_demi_brique();
+                translate( brique.getLongueur() - brique.getLongueur()/4,0,0);
+            }
+            
+            for(int i = n; i < getTaille(); i++){
+                brique.afficher_brique();
+                translate(brique.getLongueur(), 0, 0);
+            }
 
+            if (!pair){
+                translate(-brique.getLongueur()/4,0,0);
+                brique.afficher_demi_brique();
+                
+            }
+            popMatrix();
+    }
 
     public void afficher_mur(boolean pair){
-        pushMatrix();
-        int n = 0;
-        if (!pair){
-            n = 1;
-            brique.afficher_demi_brique();
-            translate( brique.getLongueur() - brique.getLongueur()/4,0,0);
+        for (int i = 0; i< getHauteur(); i++){
+            if( i % 2 == 0){
+                afficher_ligne(pair);
+            }
+            else afficher_ligne(!pair);
+            translate(0,- brique.getHauteur(),0);
         }
         
-        for(int i = n; i < getTaille(); i++){
-            brique.afficher_brique();
-            translate(brique.getLongueur(), 0, 0);
-        }
-
-        if (!pair){
-            translate(-brique.getLongueur()/4,0,0);
-            brique.afficher_demi_brique();
-            
-        }
-        popMatrix();
     }
 
 }
