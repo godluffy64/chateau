@@ -55,12 +55,13 @@ public class mur  {
 	}
 
 
-    public mur (int t, int h, brique b, int c, int m) {
+    public mur (int t, int h, brique b, int c, int m, int hm) {             // Constructeur
         this.hauteur = h;
         this.taille = t;
         this.brique = b;
         this.nombre_creneaux = c;
-        this.nombre_meutrieres = m;
+        this.nombre_meurtrieres = m;
+        this.hauteur_meurtriere = hm;
     }
 
     public void creneau(){
@@ -73,10 +74,12 @@ public class mur  {
         }
         popMatrix();
     }
-    public void meurtriere(boolean pair){
+    /*public void meurtriere(boolean pair){
+        for (int i = 0; i < getTaille(); i++){
 
-    }
-    public void afficher_ligne(boolean pair){
+        }
+    }*/
+    public void afficher_ligne(boolean pair, boolean meurtriere){
         int n = 0;
         pushMatrix();
         if (!pair){
@@ -85,10 +88,17 @@ public class mur  {
                 brique.afficher_demi_brique();
                 translate( brique.getLongueur() - brique.getLongueur()/4,0,0);
             }
-            
             for(int i = n; i < getTaille(); i++){
-                brique.afficher_brique();
-                translate(brique.getLongueur(), 0, 0);
+                if( (i == (int(getTaille()/2))) && (meurtriere) ){
+                    println("oui"+i);
+                    translate(brique.getLongueur()/4,0,0);
+                    brique.afficher_trois_quart_brique();
+                    translate(brique.getLongueur()*3/4,0,0);
+                }
+                else {
+                    brique.afficher_brique();
+                    translate(brique.getLongueur(), 0, 0);
+                }
             }
 
             if (!pair){
@@ -104,9 +114,9 @@ public class mur  {
         for (int i = 0; i< getHauteur(); i++){
             if ( i < getHauteur() - getNombre_creneaux()){
                 if( i % 2 == 0){
-                    afficher_ligne(pair);
+                    afficher_ligne(pair,true);
                 }
-                else afficher_ligne(!pair);
+                else afficher_ligne(!pair,false);
                 
             }
             else creneau();
