@@ -17,7 +17,7 @@ public class tour {
         popMatrix();
 
         pushMatrix();
-        translate(0,0,-(mur.brique.getLongueur()*mur.getTaille()));
+        translate(mur.brique.getLongueur()/2,0,-(mur.brique.getLongueur()*mur.getTaille() ));
         mur.afficher_mur(true);                 // nord
         
         popMatrix();
@@ -25,7 +25,7 @@ public class tour {
         pushMatrix();
         rotateY(PI/2);
         
-        translate(mur.brique.getLongueur()/4,0,mur.brique.getLongueur()*mur.getTaille() - mur.brique.getLongueur()*3/4);
+        translate(mur.brique.getLongueur()/4,0,mur.brique.getLongueur()*mur.getTaille() - mur.brique.getLongueur()/4);
         mur.afficher_mur(false);                //est
         popMatrix();
         //translate(mur.brique.getLongueur()*mur.getTaille()/2,-(mur.brique.getHauteur()*(mur.getHauteur()-mur.getNombre_creneaux()-1)),-mur.brique.getLongueur()*mur.getTaille()/2);
