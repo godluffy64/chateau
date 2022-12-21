@@ -2,6 +2,14 @@ public class mur  {
     private int taille;
     private int hauteur;
     private brique brique;
+    private int nombre_creneaux;
+
+    public int getNombre_creneaux(){
+        return this.nombre_creneaux;
+    }
+    public void SetNombre_creneaux(int nb_c){
+        this.nombre_creneaux = nb_c;
+    }
 
 	public brique getBrique() {
 		return this.brique;
@@ -29,11 +37,24 @@ public class mur  {
 	}
 
 
-    public mur (int t, int h, brique b) {
+    public mur (int t, int h, brique b, int c) {
         this.hauteur = h;
         this.taille = t;
         this.brique = b;
+        this.nombre_creneaux = c;
     }
+
+    public void creneau(){
+        pushMatrix();
+        for (int i = 0; i < (int) getTaille()*0.66; i++){
+            
+            brique.afficher_brique();
+            translate((brique.getLongueur()*4)/3,0,0);
+            
+        }
+        popMatrix();
+    }
+
     public void afficher_ligne(boolean pair){
         int n = 0;
         pushMatrix();
@@ -60,12 +81,17 @@ public class mur  {
     public void afficher_mur(boolean pair){
         pushMatrix();
         for (int i = 0; i< getHauteur(); i++){
-            if( i % 2 == 0){
-                afficher_ligne(pair);
+            if ( i < getHauteur() - getNombre_creneaux()){
+                if( i % 2 == 0){
+                    afficher_ligne(pair);
+                }
+                else afficher_ligne(!pair);
+                
             }
-            else afficher_ligne(!pair);
-            translate(0,- brique.getHauteur(),0);
+            else creneau();
+        translate(0,- brique.getHauteur(),0);
         }
+        
         popMatrix();
     }
 
