@@ -36,11 +36,24 @@ public class mur  {
     }
 
 
-    public void afficher_mur(){
+    public void afficher_mur(boolean pair){
         pushMatrix();
-        for(int i = 0; i < getTaille(); i++){
+        int n = 0;
+        if (!pair){
+            n = 1;
+            brique.afficher_demi_brique();
+            translate( brique.getLongueur() - brique.getLongueur()/4,0,0);
+        }
+        
+        for(int i = n; i < getTaille(); i++){
             brique.afficher_brique();
             translate(brique.getLongueur(), 0, 0);
+        }
+
+        if (!pair){
+            translate(-brique.getLongueur()/4,0,0);
+            brique.afficher_demi_brique();
+            
         }
         popMatrix();
     }
