@@ -89,10 +89,9 @@ public class mur  {
             }
             for(int i = n; i < getTaille(); i++){
                 if( (i == (int(getTaille()/2))) && (meurtriere) ){
-                    println("oui"+i);
-                    translate(brique.getLongueur()/4,0,0);
+                    translate(brique.getLongueur()/4 - brique.getLongueur()/8,0,0);
                     brique.afficher_trois_quart_brique();
-                    translate(brique.getLongueur()*3/4,0,0);
+                    translate(brique.getLongueur()*3/4 + brique.getLongueur()/8,0,0);
                 }
                 else {
                     brique.afficher_brique();
