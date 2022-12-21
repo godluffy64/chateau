@@ -36,4 +36,8 @@ public class brique {
         box(getLongueur()/2,getHauteur(),getLongueur()/2);
     }
 
+    public void afficher_trois_quart_brique(){
+        box(getLongueur()*3/4,getHauteur(),getLongueur()/2);
+    }
+
 }
