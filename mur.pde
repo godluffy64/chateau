@@ -3,6 +3,24 @@ public class mur  {
     private int hauteur;
     private brique brique;
     private int nombre_creneaux;
+    private int nombre_meurtrieres;
+    private int hauteur_meurtriere;
+
+    public int getHauteur_meutriere(){
+        return this.hauteur_meurtriere;
+    }
+
+    public void setHauteur_meurtriere(int hm){
+        this.hauteur_meurtriere = hm;
+    }
+
+    public int getNombre_meurtrieres(){
+        return this.nombre_meurtrieres;
+    }
+
+    public void setNombre_meurtrieres(int nb_m){
+        this.nombre_meurtrieres = nb_m ;
+    }
 
     public int getNombre_creneaux(){
         return this.nombre_creneaux;
@@ -37,11 +55,12 @@ public class mur  {
 	}
 
 
-    public mur (int t, int h, brique b, int c) {
+    public mur (int t, int h, brique b, int c, int m) {
         this.hauteur = h;
         this.taille = t;
         this.brique = b;
         this.nombre_creneaux = c;
+        this.nombre_meutrieres = m;
     }
 
     public void creneau(){
@@ -54,7 +73,9 @@ public class mur  {
         }
         popMatrix();
     }
+    public void meurtriere(boolean pair){
 
+    }
     public void afficher_ligne(boolean pair){
         int n = 0;
         pushMatrix();
