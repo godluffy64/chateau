@@ -88,10 +88,16 @@ public class mur  {
                 translate( brique.getLongueur() - brique.getLongueur()/4,0,0);
             }
             for(int i = n; i < getTaille(); i++){
-                if( (i == (int(getTaille()/2))) && (meurtriere) ){
-                    translate(brique.getLongueur()/4 - brique.getLongueur()/8,0,0);
-                    brique.afficher_trois_quart_brique();
-                    translate(brique.getLongueur()*3/4 + brique.getLongueur()/8,0,0);
+                if( (i == (int(getTaille()/2))) && (meurtriere)  && (pair)){
+                    translate(brique.getLongueur()/2 - brique.getLongueur()/4,0,0);
+                    brique.afficher_demi_brique();
+                    translate(brique.getLongueur()/2 + brique.getLongueur()/4,0,0);
+                }
+
+                else if( (i == (int(getTaille()/2))) && (meurtriere)  && (!pair)){
+                    translate(- brique.getLongueur()/4,0,0);
+                    brique.afficher_demi_brique();
+                    translate(brique.getLongueur() + brique.getLongueur()/4,0,0);
                 }
                 else {
                     brique.afficher_brique();
@@ -114,7 +120,7 @@ public class mur  {
                 if( i % 2 == 0){
                     afficher_ligne(pair,true);
                 }
-                else afficher_ligne(!pair,false);
+                else afficher_ligne(!pair,true);
                 
             }
             else creneau();
