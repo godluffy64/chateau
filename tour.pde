@@ -16,6 +16,7 @@ public class tour {
         translate(0,0,mur.brique.getLongueur()*mur.getTaille() - mur.brique.getLongueur()/2);
         mur.afficher_mur(false);                //est
         popMatrix();
+        translate(mur.brique.getLongueur()*mur.getTaille()/2,-(mur.brique.getHauteur()*(mur.getHauteur()-mur.getNombre_creneaux()-1)),-mur.brique.getLongueur()*mur.getTaille()/2);
+        box(mur.brique.getLongueur()*mur.getTaille() + mur.brique.getLongueur()/4,mur.brique.getHauteur(),mur.brique.getLongueur()*mur.getTaille() - mur.brique.getLongueur()/4);
     }
-
 }
