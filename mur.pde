@@ -1,6 +1,6 @@
 public class mur  {
     private int taille;
-    private int hautueur;
+    private int hauteur;
     private brique brique;
 
 	public brique getBrique() {
@@ -20,19 +20,21 @@ public class mur  {
 		this.taille = taille;
 	}
 
-	public int getHautueur() {
-		return this.hautueur;
+	public int getHauteur() {
+		return this.hauteur;
 	}
 
-	public void setHautueur(int hautueur) {
-		this.hautueur = hautueur;
+	public void setHauteur(int hauteur) {
+		this.hauteur = hauteur;
 	}
 
 
-    public mur (int t, int h) {
+    public mur (int t, int h, brique b) {
         this.hauteur = h;
         this.taille = t;
+        this.brique = b;
     }
+
 
     public void afficher_mur(){
         pushMatrix();
