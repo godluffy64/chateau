@@ -39,6 +39,7 @@ public class mur  {
         pushMatrix();
         if (!pair){
                 n = 1;
+                translate(-brique.getLongueur()/4,0,0);
                 brique.afficher_demi_brique();
                 translate( brique.getLongueur() - brique.getLongueur()/4,0,0);
             }
