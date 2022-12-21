@@ -67,7 +67,6 @@ public class mur  {
     public void creneau(){
         pushMatrix();
         for (int i = 0; i < (int) getTaille()*0.66; i++){
-            translate(brique.getLongueur()/4,0,0);
             brique.afficher_brique();
             translate((brique.getLongueur()*4)/3,0,0);
             
