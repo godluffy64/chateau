@@ -57,6 +57,7 @@ public class mur  {
     }
 
     public void afficher_mur(boolean pair){
+        pushMatrix();
         for (int i = 0; i< getHauteur(); i++){
             if( i % 2 == 0){
                 afficher_ligne(pair);
@@ -64,7 +65,7 @@ public class mur  {
             else afficher_ligne(!pair);
             translate(0,- brique.getHauteur(),0);
         }
-        
+        popMatrix();
     }
 
 }
