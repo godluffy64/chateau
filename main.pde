@@ -8,7 +8,7 @@ void setup(){
 	cam.speed = 1;
 	cam.position = new PVector(0,0,0);
     b = new brique(4,2,c);
-    m = new mur(5,10,b,2);
+    m = new mur(5,40,b,2,2,4);                      //(int t, int h, brique b, int c, int m, int hm)
     t = new tour(m);
 
 	size(1000,1000,P3D);
