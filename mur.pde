@@ -129,19 +129,19 @@ public class mur  {
         int y2 = getHauteur() - y1;                 // coordonnée y du haut
         int x = getHauteur()*3/5;                   // nombre lignes y du milieu
         int x2 = x/nombre_meurtrieres;              // nombre lignes par meurtrieres
-        int z = x2 - nombre_meurtrieres * hauteur_meurtriere;   // nombre lignes d'espace entre meurtrieres totale
+        int z = x - nombre_meurtrieres * hauteur_meurtriere;   // nombre lignes d'espace entre meurtrieres totale
         int z2 = z/(nombre_meurtrieres-1);                      // nombre lignes d'espace entre chaque meurtrieres
         pushMatrix();
         for (int i = 0; i< getHauteur(); i++){
             if ( i < getHauteur() - getNombre_creneaux()){
                 if( i % 2 == 0){
-                    if ((i < y1) || ( i > y2) || ( (i - y1 ) % (z2 + getHauteur_meutriere()) < getHauteur_meutriere())){
+                    if ((i < y1) || ( i > y2) || ( (i - y1 ) % (z2 + getHauteur_meutriere()) >= getHauteur_meutriere())){
                         afficher_ligne(pair,false);
                     }
                     else afficher_ligne(pair,true);
                 }
                 else {
-                    if ((i < y1) || ( i > y2) || ( (( i - y1 ) % (z2 + getHauteur_meutriere()) < getHauteur_meutriere()))){
+                    if ((i < y1) || ( i > y2) || ( (( i - y1 ) % (z2 + getHauteur_meutriere()) >= getHauteur_meutriere()))){
                         afficher_ligne(!pair,false);
                 }
                 else afficher_ligne(!pair,true);
