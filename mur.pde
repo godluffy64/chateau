@@ -79,7 +79,7 @@ public class mur  {
         }
     }*/
 
-    public void position-meutriere(){
+    public void position_meutriere(){
         int y1 = getHauteur()/5;                    // coordonnée y du bas
         int y2 = getHauteur() - y1;                 // coordonnée y du haut
         int x = getHauteur()*3/5;                   // nombre lignes y du milieu
@@ -125,14 +125,27 @@ public class mur  {
     }
 
     public void afficher_mur(boolean pair){
+        int y1 = getHauteur()/5;                    // coordonnée y du bas
+        int y2 = getHauteur() - y1;                 // coordonnée y du haut
+        int x = getHauteur()*3/5;                   // nombre lignes y du milieu
+        int x2 = x/nombre_meurtrieres;              // nombre lignes par meurtrieres
+        int z = x2 - nombre_meurtrieres * hauteur_meurtriere;   // nombre lignes d'espace entre meurtrieres totale
+        int z2 = z/(nombre_meurtrieres-1);                      // nombre lignes d'espace entre chaque meurtrieres
         pushMatrix();
         for (int i = 0; i< getHauteur(); i++){
             if ( i < getHauteur() - getNombre_creneaux()){
                 if( i % 2 == 0){
-                    afficher_ligne(pair,true);
+                    if ((i < y1) || ( i > y2) || ( (i - y1 ) % (z2 + getHauteur_meutriere()) < getHauteur_meutriere())){
+                        afficher_ligne(pair,false);
+                    }
+                    else afficher_ligne(pair,true);
+                }
+                else {
+                    if ((i < y1) || ( i > y2) || ( (( i - y1 ) % (z2 + getHauteur_meutriere()) < getHauteur_meutriere()))){
+                        afficher_ligne(!pair,false);
                 }
                 else afficher_ligne(!pair,true);
-                
+            }
             }
             else creneau();
         translate(0,- brique.getHauteur(),0);
@@ -140,5 +153,4 @@ public class mur  {
         
         popMatrix();
     }
-
 }
