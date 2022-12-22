@@ -78,6 +78,17 @@ public class mur  {
 
         }
     }*/
+
+    public void position-meutriere(){
+        int y1 = getHauteur()/5;                    // coordonnée y du bas
+        int y2 = getHauteur() - y1;                 // coordonnée y du haut
+        int x = getHauteur()*3/5;                   // nombre lignes y du milieu
+        int x2 = x/nombre_meurtrieres;              // nombre lignes par meurtrieres
+        int z = x2 - nombre_meurtrieres * hauteur_meurtriere;   // nombre lignes d'espace entre meurtrieres totale
+        int z2 = z/(nombre_meurtrieres-1);                      // nombre lignes d'espace entre chaque meurtrieres 
+        
+    }
+
     public void afficher_ligne(boolean pair, boolean meurtriere){
         int n = 0;
         pushMatrix();
