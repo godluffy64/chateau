@@ -187,7 +187,7 @@ public class QueasyCam {
   public PVector getTarget() {
     return target;
   }
-  
+
   public void setFov(float fov)
   {
     applet.perspective(fov, (float)applet.width/(float)applet.height, near, far);
