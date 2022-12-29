@@ -14,6 +14,9 @@ Pont_levis pl;
 Chateau ch;
 color c = color(245, 245, 220);
 color c2 = color(255, 0, 0);
+int a =5;
+int x = 10;
+int y =40;
 void setup() {
   cam = new QueasyCam(this);
   cam.speed = .5;
@@ -40,6 +43,10 @@ void setup() {
   ch.ajouterCoordTour(t, new PVector(0, 200));
   ch.ajouterCoordPont(pl, new PVector(1, 159));
   ch.ajouterCoordPont(pr, new PVector(200, 159));
+  
+  
+  
+  
   ch.ajouterCoordPont(pr, new PVector(200,1));
   //ch.ajouterCoordPont(pr, new PVector(150,1));
   //ch.retirerTour(t2);
@@ -60,15 +67,33 @@ void draw() {
   background(0);
   sol();
   pushMatrix();
-  ch.afficher_chateau();
+  mp = new Mur_porte(y, x, b, 2, a, 7);
+  pp = new Pont_porte(mp, m1, 2, PI/2);
+  pp.afficher_pont();
+  //ch.afficher_chateau();
   popMatrix();
 }
 
 void keyPressed() {
   if (key == 'a') {
-    
+    a++;
       }
   if (key == 'w') {
-    
+    a--;
+  }
+  
+  if (keyCode == 38 ){
+    x++;
+  }
+  if (keyCode == 40){
+    x--;
+  }
+  
+  if (keyCode == 37 ) {
+    y++;
+  }
+  
+  if (keyCode == 39){
+   y--; 
   }
 }
