@@ -23,22 +23,23 @@ void setup() {
   m2 = new Mur_base(40, 10, b, 2);
   mp = new Mur_porte(40, 10, b, 2, 5, 7);
   t = new Tour(mm);
-  pl = new Pont_levis(mp, m1, 2, 10, PI/2, false);
+  
   pp = new Pont_porte(mp, m1, 2, PI/2);
+  pl = new Pont_levis(mp, m1, 2, 10, PI/2, false);
   pr = new Pont_rembarde(m2,m1,2,PI/2);
   ch = new Chateau();
   //ch.ajouterMur(mm,pc);
   ch.ajouterTour(t);
   //ch.ajouterMur(m1);
   
-  //ch.ajouterPont(pl);
+  ch.ajouterPont(pl);
   ch.ajouterPont(pr);
   ch.ajouterCoordTour(t, new PVector(0, 0));
   ch.ajouterCoordTour(t, new PVector(200, 0));
   ch.ajouterCoordTour(t, new PVector(200, 200));
   ch.ajouterCoordTour(t, new PVector(0, 200));
-  //ch.ajouterCoordPont(pl, new PVector(1, 159));
-  ch.ajouterCoordPont(pr, new PVector(1, 159));
+  ch.ajouterCoordPont(pl, new PVector(1, 159));
+  ch.ajouterCoordPont(pr, new PVector(200, 159));
   ch.ajouterCoordPont(pr, new PVector(200,1));
   //ch.ajouterCoordPont(pr, new PVector(150,1));
   //ch.retirerTour(t2);
